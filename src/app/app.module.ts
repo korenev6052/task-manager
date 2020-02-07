@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http'
 
 import { AuthModule } from './auth/auth.module';
 import { UsersService } from './shared/services/users.service';
+import { AuthService } from './shared/services/auth.service';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { UsersService } from './shared/services/users.service';
     AuthModule
   ],
   providers: [
-    UsersService
+    UsersService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })

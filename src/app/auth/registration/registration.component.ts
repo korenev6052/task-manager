@@ -43,7 +43,7 @@ export class RegistrationComponent extends SingleFormComponent implements OnInit
       this.usersService.getUsersByEmail(control.value)
         .pipe(takeUntil(this.destroy))
         .subscribe((users: User[]) => {
-          if (users.length) {
+          if (users[0]) {
             resolve({ emailUsed: true });
           } else {
             resolve(null);
