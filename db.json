@@ -1,64 +1,10 @@
 {
   "users": [
     {
-      "fullName": "aaa",
-      "email": "bbb",
-      "password": "ccc",
+      "fullName": "Администратор",
+      "email": "admin@mail.ru",
+      "password": "qqqqwwww",
       "id": 1
-    },
-    {
-      "fullName": "aaa",
-      "email": "bbb",
-      "password": "ccc",
-      "id": 2
-    },
-    {
-      "fullName": "gdsg",
-      "email": "gdssdg@gfsdgdsfhg",
-      "password": "dsfgdsfgdsf",
-      "id": 3
-    },
-    {
-      "fullName": "sgsdgd",
-      "email": "sagsag@gsgsa",
-      "password": "gsgsagsas",
-      "id": 4
-    },
-    {
-      "fullName": "sgsdgd",
-      "email": "aaa@aaa",
-      "password": "gsgsagsas",
-      "id": 5
-    },
-    {
-      "fullName": "sgsdgd",
-      "email": "aaa@aaa",
-      "password": "gsgsagsas",
-      "id": 6
-    },
-    {
-      "fullName": "asf",
-      "email": "aaa@aaaa",
-      "password": "sffasdfas@",
-      "id": 7
-    },
-    {
-      "fullName": "fasfas",
-      "email": "aaa@aaaaa",
-      "password": "fsdafsagasgsagsadg",
-      "id": 8
-    },
-    {
-      "fullName": "fasasf",
-      "email": "asdfa@fsdadasg",
-      "password": "gasdgasdgsadgsdag",
-      "id": 9
-    },
-    {
-      "fullName": "fasf",
-      "email": "aaa@aaaaaa",
-      "password": "fsdagasgasg",
-      "id": 10
     }
   ]
 }

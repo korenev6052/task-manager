@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { Validators, FormBuilder, FormControl } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { takeUntil } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 import { SingleFormComponent } from 'src/app/shared/components/single-form/single-form.component';
 import { UsersService } from 'src/app/shared/services/users.service';
@@ -13,7 +14,7 @@ import { User } from 'src/app/shared/models/user.model';
   styleUrls: ['./registration.component.css']
 })
 export class RegistrationComponent extends SingleFormComponent implements OnInit {
-  constructor(formBuilder: FormBuilder, snackBar: MatSnackBar, private usersService: UsersService) {
+  constructor(formBuilder: FormBuilder, snackBar: MatSnackBar, private usersService: UsersService, private router: Router) {
     super(formBuilder, snackBar);
   }
 
@@ -56,5 +57,10 @@ export class RegistrationComponent extends SingleFormComponent implements OnInit
     const { fullName, email, password } = this.form.value;
     this.makeRequest = this.usersService.createUser({ fullName, email, password });
     this.formSubmit();
+  }
+
+  onSubmitSuccess(users: User[]) {
+    this.snackBar.open(this.successMessage, 'Закрыть', { duration: 3000, verticalPosition: 'bottom' });
+    this.router.navigate(['/login']);
   }
 }

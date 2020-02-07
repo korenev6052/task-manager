@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { SystemComponent } from './system.component';
 import { SharedModule } from '../shared/shared.module';
+import { SystemRoutingModule } from './system-routing.module';
 
 @NgModule({
   declarations: [
@@ -10,7 +11,8 @@ import { SharedModule } from '../shared/shared.module';
   ],
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    SystemRoutingModule
   ],
   exports: [
     SystemComponent

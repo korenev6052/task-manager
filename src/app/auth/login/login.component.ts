@@ -1,12 +1,13 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { takeUntil } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 import { SingleFormComponent } from 'src/app/shared/components/single-form/single-form.component';
 import { UsersService } from 'src/app/shared/services/users.service';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { User } from 'src/app/shared/models/user.model';
-import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,7 @@ import { takeUntil } from 'rxjs/operators';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent extends SingleFormComponent implements OnInit {
-  constructor(formBuilder: FormBuilder, snackBar: MatSnackBar, private usersService: UsersService, private authService: AuthService) {
+  constructor(formBuilder: FormBuilder, snackBar: MatSnackBar, private usersService: UsersService, private authService: AuthService, private router: Router) {
     super(formBuilder, snackBar);
   }
 
@@ -56,6 +57,7 @@ export class LoginComponent extends SingleFormComponent implements OnInit {
 
         window.localStorage.setItem('user', JSON.stringify(users[0]));
         this.authService.login();
+        this.router.navigate(['/system']);
       });
   }
 }
