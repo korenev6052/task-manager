@@ -1,0 +1,10 @@
+<div class="text-input" [formGroup]="form">
+  <mat-form-field class="text-input__field" appearance="fill">
+    <mat-label *ngIf="label">{{ label }}</mat-label>
+    <input *ngIf="!textarea" matInput type="{{ type || 'text' }}" [placeholder]="placeholder" [formControlName]="name">
+    <textarea *ngIf="textarea" matInput type="text" [placeholder]="placeholder" [formControlName]="name"></textarea>
+    <mat-error *ngIf="errors">
+      <span *ngIf="isControlHasError()">{{ errorMessage }}</span>
+    </mat-error>
+  </mat-form-field>
+</div>
