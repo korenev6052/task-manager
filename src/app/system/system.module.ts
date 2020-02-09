@@ -11,11 +11,8 @@ import { SystemRoutingModule } from './system-routing.module';
   ],
   imports: [
     CommonModule,
-    SharedModule,
-    SystemRoutingModule
-  ],
-  exports: [
-    SystemComponent
+    SystemRoutingModule,
+    SharedModule
   ]
 })
 export class SystemModule { }

@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { SingleFormComponent } from 'src/app/shared/components/single-form/single-form.component';
 import { UsersService } from 'src/app/shared/services/users.service';
 import { User } from 'src/app/shared/models/user.model';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
   selector: 'app-registration',
@@ -14,11 +15,23 @@ import { User } from 'src/app/shared/models/user.model';
   styleUrls: ['./registration.component.css']
 })
 export class RegistrationComponent extends SingleFormComponent implements OnInit {
-  constructor(formBuilder: FormBuilder, snackBar: MatSnackBar, private usersService: UsersService, private router: Router) {
+  constructor(
+    formBuilder: FormBuilder,
+    snackBar: MatSnackBar,
+    private usersService: UsersService,
+    private authService: AuthService,
+    private router: Router
+  ) {
     super(formBuilder, snackBar);
   }
 
   ngOnInit() {
+    this.authService.tryLocalStorageLogin(() => {
+      if (this.authService.isLoggedIn) {
+        this.router.navigate(['/system']);
+      }
+    });
+
     this.initForm({
       fullName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email], this.emailUsed.bind(this)],
@@ -60,6 +73,7 @@ export class RegistrationComponent extends SingleFormComponent implements OnInit
   }
 
   onSubmitSuccess(users: User[]) {
+    this.successMessage = 'Теперь вы можете войти';
     this.snackBar.open(this.successMessage, 'Закрыть', { duration: 3000, verticalPosition: 'bottom' });
     this.router.navigate(['/login']);
   }

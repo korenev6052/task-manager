@@ -5,6 +5,24 @@
       "email": "admin@mail.ru",
       "password": "qqqqwwww",
       "id": 1
+    },
+    {
+      "fullName": "Александр",
+      "email": "korenev6052@gmail.com",
+      "password": "qqqqwwww",
+      "id": 2
+    },
+    {
+      "fullName": "Александр",
+      "email": "admin2@mail.ru",
+      "password": "qqqqwwww",
+      "id": 3
+    },
+    {
+      "fullName": "Александр",
+      "email": "admin3@mail.ru",
+      "password": "qqqqwwww",
+      "id": 4
     }
   ]
 }

@@ -1,10 +1,18 @@
-<form [formGroup]="form" (ngSubmit)="onSubmit()">
-  <app-text-input [form]="form" type="email" name="email" label="Емейл" [errors]="formErrors['email']">
-  </app-text-input>
-  <app-text-input [form]="form" type="password" name="password" label="Пароль" [errors]="formErrors['password']">
-  </app-text-input>
-  <button type="submit" mat-raised-button color="primary" [disabled]="sending">
-    Войти
-  </button>
-</form>
-<a routerLink="/registration">Зарегистрироваться</a>
+<app-navbar></app-navbar>
+<div class="container">
+  <div class="login">
+    <h1>Вход</h1>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <app-text-input [form]="form" type="email" name="email" label="Емейл" [errors]="formErrors['email']">
+      </app-text-input>
+      <app-text-input [form]="form" type="password" name="password" label="Пароль" [errors]="formErrors['password']">
+      </app-text-input>
+      <button type="submit" mat-raised-button color="primary" class="login__button" [disabled]="sending">
+        Войти
+      </button>
+    </form>
+    <div>
+      Еще нет аккаунта? <a routerLink="/registration">Зарегистрироваться</a>
+    </div>
+  </div>
+</div>
