@@ -1,0 +1,17 @@
+.navbar__title {
+  margin: 0 10px;
+}
+.navbar__spacer {
+  flex: 1 1 auto;
+}
+.navbar__item {
+  display: inline;
+  margin: 0 10px;
+}
+.navbar__link {
+  text-decoration: none;
+  color: #FFFFFF;
+}
+.navbar__link:hover {
+  text-decoration: underline;
+}
