@@ -1,7 +1,6 @@
 import { Component } from "@angular/core";
-import { Router } from '@angular/router';
 
-import { AuthService } from '../shared/services/auth.service';
+import { NavbarItem } from '../shared/models/navbar-item.model';
 
 @Component({
   selector: 'app-system',
@@ -9,10 +8,11 @@ import { AuthService } from '../shared/services/auth.service';
   styleUrls: ['./system.component.css']
 })
 export class SystemComponent {
-  constructor(private authService: AuthService, private router: Router) { }
-
-  logout() {
-    this.authService.logout();
-    this.router.navigate(['/login']);
-  }
+  items: NavbarItem[] = [{
+    title: 'Добавить задачу',
+    link: 'add-task'
+  }, {
+    title: 'Список задач',
+    link: 'task-list'
+  }]
 }
