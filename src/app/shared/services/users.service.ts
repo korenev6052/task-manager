@@ -13,6 +13,10 @@ export class UsersService {
     return this.http.post<User>(`${environment.JSONServer}/users`, user);
   }
 
+  getUsers(): Observable<User[]> {
+    return this.http.get<User[]>(`${environment.JSONServer}/users`);
+  }
+
   getUsersByEmail(email: string): Observable<User[]> {
     return this.http.get<User[]>(`${environment.JSONServer}/users?email=${email}`);
   }

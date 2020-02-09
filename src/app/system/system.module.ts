@@ -7,6 +7,7 @@ import { SystemRoutingModule } from './system-routing.module';
 import { AddTaskComponent } from './add-task/add-task.component';
 import { TaskListComponent } from './task-list/task-list.component';
 import { TasksService } from './shared/services/tasks.service';
+import { ManagersService } from './shared/services/managers.service';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { TasksService } from './shared/services/tasks.service';
     SharedModule
   ],
   providers: [
-    TasksService
+    TasksService,
+    ManagersService
   ]
 })
 export class SystemModule { }
