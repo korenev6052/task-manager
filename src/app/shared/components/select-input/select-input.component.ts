@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup, AbstractControl } from '@angular/forms';
 
 @Component({
@@ -6,14 +6,21 @@ import { FormGroup, AbstractControl } from '@angular/forms';
   templateUrl: './select-input.component.html',
   styleUrls: ['./select-input.component.css']
 })
-export class SelectInputComponent {
+export class SelectInputComponent implements OnInit {
   @Input() form: FormGroup;
   @Input() name: string;
   @Input() label: string;
-  @Input() options: string[];
+  @Input() opts: string[] | number[];
+  @Input() optsValues: string[] | number[];
   @Input() errors: object;
 
   errorMessage: string;
+
+  ngOnInit() {
+    if (!this.optsValues) {
+      this.optsValues = this.opts;
+    }
+  }
 
   isControlHasError(): boolean {
     const control = this.form.get(this.name);

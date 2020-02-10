@@ -51,11 +51,11 @@ export class SingleFormComponent {
     }
   }
 
-  onSubmitSuccess(request) {
+  protected onSubmitSuccess(request) {
     this.snackBar.open(this.successMessage, 'Закрыть', { duration: 3000, verticalPosition: 'bottom' });
   }
 
-  onSubmitFail(error) {
+  protected onSubmitFail(error) {
     this.snackBar.open(this.failMessage, 'Закрыть', { duration: 3000, verticalPosition: 'bottom' });
   }
 
