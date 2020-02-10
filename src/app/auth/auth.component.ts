@@ -11,6 +11,8 @@ import { NavbarItem } from '../shared/models/navbar-item.model';
 export class AuthComponent implements OnInit {
   constructor(private authService: AuthService) { }
 
+  loggedIn: boolean = false;
+
   navbarItems: NavbarItem[] = [{
     title: 'Войти',
     link: '/login'
@@ -21,7 +23,8 @@ export class AuthComponent implements OnInit {
 
   ngOnInit() {
     this.authService.tryLocalStorageLogin(() => {
-      if (this.authService.isLoggedIn()) {
+      this.loggedIn = this.authService.isLoggedIn();
+      if (this.loggedIn) {
         this.navbarItems = [{
           title: 'Перейти в систему',
           link: '/system'

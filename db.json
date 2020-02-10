@@ -1,28 +1,134 @@
 {
   "users": [
     {
-      "fullName": "Администратор",
+      "fullName": "Александр Коренев",
       "email": "admin@mail.ru",
       "password": "qqqqwwww",
       "id": 1
     },
     {
-      "fullName": "Александр",
-      "email": "korenev6052@gmail.com",
+      "fullName": "Александр Петров",
+      "email": "admin2@mail.ru",
       "password": "qqqqwwww",
       "id": 2
     },
     {
-      "fullName": "Александр",
-      "email": "admin2@mail.ru",
+      "fullName": "Петр Денисов",
+      "email": "admin3@mail.ru",
       "password": "qqqqwwww",
       "id": 3
     },
     {
-      "fullName": "Александр",
-      "email": "admin3@mail.ru",
+      "fullName": "Виталий Леонов",
+      "email": "admin4@mail.ru",
       "password": "qqqqwwww",
       "id": 4
+    }
+  ],
+  "tasks": [
+    {
+      "title": "sadsg",
+      "manager": "Александр Петров",
+      "description": "fdfasgsdagd",
+      "priority": "Средний",
+      "status": "Неактивная",
+      "id": 1
+    },
+    {
+      "title": "sfaasfd",
+      "managerId": null,
+      "description": "fasdf",
+      "priority": "Средний",
+      "status": "Неактивная",
+      "id": 2
+    },
+    {
+      "title": "gsgsadgas",
+      "managerId": 0,
+      "description": "gsagasd",
+      "priority": "Средний",
+      "status": "Выполнена",
+      "id": 3
+    },
+    {
+      "title": "gsagsa",
+      "managerId": 0,
+      "description": "gsda",
+      "priority": "Средний",
+      "status": "Проверена",
+      "id": 4
+    },
+    {
+      "title": "fasdfdas",
+      "managerId": 0,
+      "description": "gsadgsad",
+      "priority": "Средний",
+      "status": "Неактивная",
+      "id": 5
+    },
+    {
+      "title": "fdsf",
+      "managerId": 0,
+      "description": "fsda",
+      "priority": "Средний",
+      "status": "Неактивная",
+      "id": 6
+    },
+    {
+      "title": "fasd",
+      "managerId": 2,
+      "description": "gas",
+      "priority": "Средний",
+      "status": "Неактивная",
+      "id": 7
+    },
+    {
+      "title": "fasd",
+      "managerId": 0,
+      "description": "fads",
+      "priority": "Средний",
+      "status": "Неактивная",
+      "id": 8
+    },
+    {
+      "title": "fdsafas",
+      "managerId": 3,
+      "description": "fsad",
+      "priority": "Средний",
+      "status": "Неактивная",
+      "id": 9
+    },
+    {
+      "title": "gas",
+      "managerId": 4645,
+      "description": "gas",
+      "priority": "Средний",
+      "status": "Неактивная",
+      "id": 10
+    },
+    {
+      "title": "Новый тест",
+      "managerId": "3",
+      "description": "Новый тест",
+      "priority": "average",
+      "status": "scheduled",
+      "id": 11
+    },
+    {
+      "title": "gsgsdg",
+      "managerId": "3",
+      "description": "gsdfgsd",
+      "priority": "Средний",
+      "status": "Неактивная",
+      "id": 12
+    },
+    {
+      "title": "111111111111",
+      "managerId": "2",
+      "description": "111",
+      "priority": "Высокий",
+      "status": "Выполнена",
+      "id": 13
     }
   ]
 }

@@ -21,7 +21,7 @@ export class SingleFormComponent {
   sent: boolean = false;
   successMessage: string = 'Форма отправлена';
   failMessage: string = 'Ошибка отправки формы';
-  destroy: Subject<boolean> = new Subject<boolean>();
+  destroy: Subject<any> = new Subject<any>();
 
   protected initForm(formFields: FormFields, formErrors?: FormErrors) {
     this.form = this.formBuilder.group(formFields);
@@ -51,11 +51,11 @@ export class SingleFormComponent {
     }
   }
 
-  onSubmitSuccess(request) {
+  protected onSubmitSuccess(request) {
     this.snackBar.open(this.successMessage, 'Закрыть', { duration: 3000, verticalPosition: 'bottom' });
   }
 
-  onSubmitFail(error) {
+  protected onSubmitFail(error) {
     this.snackBar.open(this.failMessage, 'Закрыть', { duration: 3000, verticalPosition: 'bottom' });
   }
 
