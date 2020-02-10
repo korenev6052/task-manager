@@ -4,8 +4,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { SingleFormComponent } from 'src/app/shared/components/single-form/single-form.component';
 import { TasksService } from '../shared/services/tasks.service';
-import { TaskPriorities, TaskPrioritiesValues } from '../shared/consts/task-priorities.const';
-import { TaskStatuses, TaskStatusesValues } from '../shared/consts/task-statuses.const';
+import { TaskPriorities } from '../shared/consts/task-priorities.const';
+import { TaskStatuses } from '../shared/consts/task-statuses.const';
 import { ManagersService } from '../shared/services/managers.service';
 
 @Component({
@@ -24,17 +24,16 @@ export class AddTaskComponent extends SingleFormComponent implements OnInit {
   }
 
   priorities = TaskPriorities;
-  prioritiesValues = TaskPrioritiesValues;
+  prioritiesOpts = Object.values(this.priorities);
   statuses = TaskStatuses;
-  statusesValues = TaskStatusesValues;
-  managersValues: string[] = [];
+  statusesOpts = Object.values(this.statuses);
+  managersOpts = this.managersService.fullNameValues;
+  managersOptsValues = this.managersService.idValues;
 
   ngOnInit() {
-    this.managersValues = this.managersService.getManagersValues();
-
     this.initForm({
       title: ['', Validators.required],
-      manager: ['', Validators.required],
+      managerId: ['', Validators.required],
       description: [''],
       priority: [this.priorities.average, Validators.required],
       status: [this.statuses.inactive, Validators.required],
@@ -42,7 +41,7 @@ export class AddTaskComponent extends SingleFormComponent implements OnInit {
       title: {
         required: 'Название не может быть пустым'
       },
-      manager: {
+      managerId: {
         required: 'Исполнитель не может быть пустым'
       },
       priority: {
@@ -55,14 +54,8 @@ export class AddTaskComponent extends SingleFormComponent implements OnInit {
   }
 
   onSubmit() {
-    const { title, manager, description, priority, status } = this.form.value;
-    this.makeRequest = this.tasksService.addTask({
-      title,
-      managerId: this.managersService.getManagerIdByValue(manager),
-      description,
-      priority,
-      status
-    });
+    const task = this.form.value;
+    this.makeRequest = this.tasksService.addTask(task);
     this.formSubmit();
   }
 }

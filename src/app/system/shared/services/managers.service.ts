@@ -10,17 +10,11 @@ export class ManagersService {
     this.managers.push(manager);
   }
 
-  getManagersValues(): string[] {
-    return this.managers.map((manager) => {
-      return `${manager.fullName} (id: ${manager.id})`;
-    });
+  get idValues(): number[] {
+    return this.managers.map((manager) => manager.id);
   }
 
-  getManagerIdByValue(value: string): number {
-    if (!value) return null;
-
-    const begin = value.indexOf(':') + 1;
-    const end = value.length - 1;
-    return +value.slice(begin, end);
+  get fullNameValues(): string[] {
+    return this.managers.map((manager) => manager.fullName);
   }
 }

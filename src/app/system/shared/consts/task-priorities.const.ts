@@ -3,8 +3,3 @@ export const TaskPriorities = {
   average: 'Средний',
   high: 'Высокий'
 }
-export const TaskPrioritiesValues = [
-  TaskPriorities.low,
-  TaskPriorities.average,
-  TaskPriorities.high
-]
