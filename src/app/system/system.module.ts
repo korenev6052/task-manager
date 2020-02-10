@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 import { SystemComponent } from './system.component';
 import { SharedModule } from '../shared/shared.module';
@@ -20,7 +21,8 @@ import { SingleTaskComponent } from './single-task/single-task.component';
   imports: [
     CommonModule,
     SystemRoutingModule,
-    SharedModule
+    SharedModule,
+    MatExpansionModule
   ],
   providers: [
     TasksService,
