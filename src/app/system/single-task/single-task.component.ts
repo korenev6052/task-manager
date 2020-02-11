@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { Task } from '../shared/models/task.model';
 import { ManagersService } from '../shared/services/managers.service';
@@ -9,7 +10,7 @@ import { ManagersService } from '../shared/services/managers.service';
   styleUrls: ['./single-task.component.css']
 })
 export class SingleTaskComponent implements OnInit {
-  constructor(private managersService: ManagersService) { }
+  constructor(private managersService: ManagersService, private router: Router) { }
 
   @Input() task: Task;
   @Output() onDelete: EventEmitter<Task> = new EventEmitter<Task>();
@@ -18,6 +19,10 @@ export class SingleTaskComponent implements OnInit {
 
   ngOnInit() {
     this.manager = this.managersService.getFullNameById(this.task.managerId);
+  }
+
+  edit() {
+    this.router.navigate(['/system', 'edit-task', this.task.id]);
   }
 
   delete() {

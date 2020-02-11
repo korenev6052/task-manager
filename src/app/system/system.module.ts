@@ -10,13 +10,15 @@ import { TaskListComponent } from './task-list/task-list.component';
 import { TasksService } from './shared/services/tasks.service';
 import { ManagersService } from './shared/services/managers.service';
 import { SingleTaskComponent } from './single-task/single-task.component';
+import { EditTaskComponent } from './edit-task/edit-task.component';
 
 @NgModule({
   declarations: [
     SystemComponent,
     AddTaskComponent,
     TaskListComponent,
-    SingleTaskComponent
+    SingleTaskComponent,
+    EditTaskComponent
   ],
   imports: [
     CommonModule,
