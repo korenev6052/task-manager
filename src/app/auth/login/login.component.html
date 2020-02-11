@@ -1,6 +1,7 @@
 <app-navbar></app-navbar>
 <div class="container">
-  <div class="login">
+  <div *ngIf="!loaded">Пожалуйста, подождите...</div>
+  <div *ngIf="loaded" class="login">
     <h1>Вход</h1>
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
       <app-text-input [form]="form" type="email" name="email" label="Емейл" [errors]="formErrors['email']">

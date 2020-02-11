@@ -25,11 +25,15 @@ export class RegistrationComponent extends SingleFormComponent implements OnInit
     super(formBuilder, snackBar);
   }
 
+  loaded: boolean = false;
+
   ngOnInit() {
     this.authService.tryLocalStorageLogin(() => {
       if (this.authService.isLoggedIn) {
         this.router.navigate(['/system']);
       }
+    }, () => {
+      this.loaded = true;
     });
 
     this.initForm({

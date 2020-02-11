@@ -54,7 +54,7 @@ export class SingleFormComponent {
   }
 
   protected onSubmitFail(error: any) {
-    this.showMessage('Ошибка отправки формы');
+    this.showMessage('Произошла ошибка');
   }
 
   protected showMessage(message: string) {

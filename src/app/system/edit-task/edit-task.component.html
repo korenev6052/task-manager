@@ -1,7 +1,7 @@
-<div class="edit-task">
+<div *ngIf="!loaded">Пожалуйста, подождите...</div>
+<div *ngIf="loaded" class="edit-task">
   <h1>Редактировать задачу</h1>
-  <div *ngIf="!loaded">Пожалуйста, подождите...</div>
-  <form *ngIf="loaded" [formGroup]="form" (ngSubmit)="onSubmit()">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <app-text-input [form]="form" name="title" label="Название" [errors]="formErrors['title']">
     </app-text-input>
     <app-select-input [form]="form" name="managerId" label="Исполнитель" [errors]="formErrors['managerId']"

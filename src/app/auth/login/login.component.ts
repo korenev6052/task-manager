@@ -14,6 +14,7 @@ import { FormErrors } from 'src/app/shared/interfaces/form-errors.interface';
 export class LoginComponent implements OnInit {
   constructor(private authService: AuthService, private router: Router, private snackBar: MatSnackBar) { }
 
+  loaded: boolean = false;
   form: FormGroup;
   formErrors: FormErrors = {};
 
@@ -22,6 +23,8 @@ export class LoginComponent implements OnInit {
       if (this.authService.isLoggedIn) {
         this.router.navigate(['/system']);
       }
+    }, () => {
+      this.loaded = true;
     });
 
     this.form = new FormGroup({

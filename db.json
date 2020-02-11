@@ -73,14 +73,6 @@
       "priority": "Низкий",
       "status": "Неактивная",
       "id": 9
-    },
-    {
-      "title": "Задача 101",
-      "managerId": 3,
-      "description": "",
-      "priority": "Средний",
-      "status": "Неактивная",
-      "id": 10
     }
   ]
 }

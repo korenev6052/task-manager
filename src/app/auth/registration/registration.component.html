@@ -1,6 +1,7 @@
 <app-navbar></app-navbar>
 <div class="container">
-  <div class="registration">
+  <div *ngIf="!loaded">Пожалуйста, подождите...</div>
+  <div *ngIf="loaded" class="registration">
     <h1>Регистрация</h1>
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
       <app-text-input [form]="form" name="fullName" label="Имя" [errors]="formErrors['fullName']">
