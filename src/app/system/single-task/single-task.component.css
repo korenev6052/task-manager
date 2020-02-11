@@ -1,0 +1,10 @@
+.title {
+  font-size: 16px;
+}
+.data {
+  display: flex;
+  flex-direction: column;
+}
+.data__description {
+  padding-top: 10px;
+}

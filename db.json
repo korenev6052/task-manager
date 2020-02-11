@@ -2,133 +2,69 @@
   "users": [
     {
       "fullName": "Александр Коренев",
-      "email": "admin@mail.ru",
+      "email": "ak@mail.ru",
       "password": "qqqqwwww",
       "id": 1
     },
     {
       "fullName": "Александр Петров",
-      "email": "admin2@mail.ru",
+      "email": "ap@mail.ru",
       "password": "qqqqwwww",
       "id": 2
     },
     {
       "fullName": "Петр Денисов",
-      "email": "admin3@mail.ru",
+      "email": "pd@mail.ru",
       "password": "qqqqwwww",
       "id": 3
     },
     {
       "fullName": "Виталий Леонов",
-      "email": "admin4@mail.ru",
+      "email": "vl@mail.ru",
       "password": "qqqqwwww",
       "id": 4
     }
   ],
   "tasks": [
     {
-      "title": "sadsg",
-      "manager": "Александр Петров",
-      "description": "fdfasgsdagd",
+      "title": "Задача 1",
+      "managerId": 1,
+      "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae, fugiat. Saepe numquam laboriosam laudantium veniam tempora doloremque assumenda. Distinctio odit quasi quibusdam dolorum quam quas architecto eius, quia fugit dicta? Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae iusto mollitia laborum voluptates facilis ab facere, odit itaque quidem tempore laudantium neque, ea sunt iure. Inventore optio hic ex velit.",
       "priority": "Средний",
       "status": "Неактивная",
       "id": 1
     },
     {
-      "title": "sfaasfd",
-      "managerId": null,
-      "description": "fasdf",
-      "priority": "Средний",
-      "status": "Неактивная",
+      "title": "Задача 2",
+      "managerId": 2,
+      "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae, fugiat. Saepe numquam laboriosam laudantium veniam tempora doloremque assumenda. Distinctio odit quasi quibusdam dolorum quam quas architecto eius, quia fugit dicta? Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae iusto mollitia laborum voluptates facilis ab facere, odit itaque quidem tempore laudantium neque, ea sunt iure. Inventore optio hic ex velit.",
+      "priority": "Низкий",
+      "status": "Запланирована",
       "id": 2
     },
     {
-      "title": "gsgsadgas",
-      "managerId": 0,
-      "description": "gsagasd",
-      "priority": "Средний",
+      "title": "Задача 3",
+      "managerId": 1,
+      "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae, fugiat. Saepe numquam laboriosam laudantium veniam tempora doloremque assumenda. Distinctio odit quasi quibusdam dolorum quam quas architecto eius, quia fugit dicta? Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae iusto mollitia laborum voluptates facilis ab facere, odit itaque quidem tempore laudantium neque, ea sunt iure. Inventore optio hic ex velit.",
+      "priority": "Высокий",
       "status": "Выполнена",
       "id": 3
     },
     {
-      "title": "gsagsa",
-      "managerId": 0,
-      "description": "gsda",
+      "title": "Задача 4",
+      "managerId": 3,
+      "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae, fugiat. Saepe numquam laboriosam laudantium veniam tempora doloremque assumenda. Distinctio odit quasi quibusdam dolorum quam quas architecto eius, quia fugit dicta? Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae iusto mollitia laborum voluptates facilis ab facere, odit itaque quidem tempore laudantium neque, ea sunt iure. Inventore optio hic ex velit.",
       "priority": "Средний",
       "status": "Проверена",
       "id": 4
     },
     {
-      "title": "fasdfdas",
-      "managerId": 0,
-      "description": "gsadgsad",
-      "priority": "Средний",
-      "status": "Неактивная",
-      "id": 5
-    },
-    {
-      "title": "fdsf",
-      "managerId": 0,
-      "description": "fsda",
-      "priority": "Средний",
-      "status": "Неактивная",
-      "id": 6
-    },
-    {
-      "title": "fasd",
+      "title": "Задача 5",
       "managerId": 2,
-      "description": "gas",
+      "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae, fugiat. Saepe numquam laboriosam laudantium veniam tempora doloremque assumenda. Distinctio odit quasi quibusdam dolorum quam quas architecto eius, quia fugit dicta? Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae iusto mollitia laborum voluptates facilis ab facere, odit itaque quidem tempore laudantium neque, ea sunt iure. Inventore optio hic ex velit.",
       "priority": "Средний",
-      "status": "Неактивная",
-      "id": 7
-    },
-    {
-      "title": "fasd",
-      "managerId": 0,
-      "description": "fads",
-      "priority": "Средний",
-      "status": "Неактивная",
-      "id": 8
-    },
-    {
-      "title": "fdsafas",
-      "managerId": 3,
-      "description": "fsad",
-      "priority": "Средний",
-      "status": "Неактивная",
-      "id": 9
-    },
-    {
-      "title": "gas",
-      "managerId": 4645,
-      "description": "gas",
-      "priority": "Средний",
-      "status": "Неактивная",
-      "id": 10
-    },
-    {
-      "title": "Новый тест",
-      "managerId": "3",
-      "description": "Новый тест",
-      "priority": "average",
-      "status": "scheduled",
-      "id": 11
-    },
-    {
-      "title": "gsgsdg",
-      "managerId": "3",
-      "description": "gsdfgsd",
-      "priority": "Средний",
-      "status": "Неактивная",
-      "id": 12
-    },
-    {
-      "title": "111111111111",
-      "managerId": "2",
-      "description": "111",
-      "priority": "Высокий",
-      "status": "Выполнена",
-      "id": 13
+      "status": "Закрыта",
+      "id": 5
     }
   ]
 }

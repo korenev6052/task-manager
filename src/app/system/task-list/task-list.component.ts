@@ -22,7 +22,12 @@ export class TaskListComponent implements OnInit, OnDestroy {
       .pipe(takeUntil(this.destroy))
       .subscribe((tasks: Task[]) => {
         this.originTasks = tasks;
+        this.tasks = tasks;
       })
+  }
+
+  trackByFn(index, item) {
+    return item.id;
   }
 
   ngOnDestroy() {

@@ -8,6 +8,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterModule } from '@angular/router';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
+import { MatIconModule } from '@angular/material/icon';
 
 import { SingleFormComponent } from './components/single-form/single-form.component';
 import { TextInputComponent } from './components/text-input/text-input.component';
@@ -30,7 +31,8 @@ import { SelectInputComponent } from './components/select-input/select-input.com
     MatSnackBarModule,
     MatToolbarModule,
     MatFormFieldModule,
-    MatSelectModule
+    MatSelectModule,
+    MatIconModule
   ],
   exports: [
     ReactiveFormsModule,
@@ -40,7 +42,8 @@ import { SelectInputComponent } from './components/select-input/select-input.com
     NavbarComponent,
     MatButtonModule,
     MatSnackBarModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatIconModule
   ]
 })
 export class SharedModule { }

@@ -17,4 +17,11 @@ export class ManagersService {
   get fullNameValues(): string[] {
     return this.managers.map((manager) => manager.fullName);
   }
+
+  getFullNameById(id: number): string {
+    const targetManager = this.managers.find((manager) => {
+      return (manager.id === id);
+    });
+    return targetManager.fullName;
+  }
 }

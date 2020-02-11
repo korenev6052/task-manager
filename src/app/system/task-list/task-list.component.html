@@ -1,1 +1,8 @@
-<app-single-task></app-single-task>
+<div class="tasks">
+  <h1>Список задач</h1>
+  <div class="tasks__item">
+    <mat-accordion>
+      <app-single-task *ngFor="let task of tasks; trackBy: trackByFn" [task]=" task"></app-single-task>
+    </mat-accordion>
+  </div>
+</div>
