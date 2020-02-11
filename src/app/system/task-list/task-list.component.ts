@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { TasksService } from '../shared/services/tasks.service';
 import { Task } from '../shared/models/task.model';
@@ -11,7 +12,7 @@ import { Task } from '../shared/models/task.model';
   styleUrls: ['./task-list.component.css']
 })
 export class TaskListComponent implements OnInit, OnDestroy {
-  constructor(private tasksService: TasksService) { }
+  constructor(private tasksService: TasksService, private snackBar: MatSnackBar) { }
 
   destroy: Subject<any> = new Subject<any>();
   originTasks: Task[] = [];
@@ -24,6 +25,18 @@ export class TaskListComponent implements OnInit, OnDestroy {
         this.originTasks = tasks;
         this.tasks = tasks;
       })
+  }
+
+  deleteTask(targetTask: Task) {
+    this.tasksService.deleteTask(targetTask)
+      .pipe(takeUntil(this.destroy))
+      .subscribe((response) => {
+        this.originTasks = this.originTasks.filter((task) => task !== targetTask);
+        this.tasks = this.tasks.filter((task) => task !== targetTask);
+        this.snackBar.open('Задача удалена', 'Закрыть', { duration: 3000, verticalPosition: 'bottom' });
+      }, (error) => {
+        this.snackBar.open('Произошла ошибка', 'Закрыть', { duration: 3000, verticalPosition: 'bottom' });
+      });
   }
 
   trackByFn(index, item) {

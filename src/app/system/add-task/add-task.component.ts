@@ -54,8 +54,14 @@ export class AddTaskComponent extends SingleFormComponent implements OnInit {
   }
 
   onSubmit() {
-    const task = this.form.value;
-    this.makeRequest = this.tasksService.addTask(task);
+    const { title, managerId, description, priority, status } = this.form.value;
+    this.makeRequest = this.tasksService.addTask({
+      title,
+      managerId: +managerId,
+      description,
+      priority,
+      status
+    });
     this.formSubmit();
   }
 }

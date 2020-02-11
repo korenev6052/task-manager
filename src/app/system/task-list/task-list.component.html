@@ -2,7 +2,8 @@
   <h1>Список задач</h1>
   <div class="tasks__item">
     <mat-accordion>
-      <app-single-task *ngFor="let task of tasks; trackBy: trackByFn" [task]=" task"></app-single-task>
+      <app-single-task *ngFor="let task of tasks; trackBy: trackByFn" [task]=" task" (onDelete)="deleteTask($event)">
+      </app-single-task>
     </mat-accordion>
   </div>
 </div>
