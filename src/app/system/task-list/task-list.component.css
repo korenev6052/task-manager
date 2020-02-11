@@ -1,0 +1,26 @@
+.toolbar {
+  display: flex;
+  flex-direction: row;
+}
+.sort {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.sort__item {
+  margin-right: 10px;
+  cursor: pointer;
+}
+.sort__item:hover {
+  color: #3F51B5;
+}
+.search {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+}
+.search__item {
+  margin-left: 10px;
+}

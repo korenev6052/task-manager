@@ -42,6 +42,8 @@ export class AuthService {
 
     if (user) {
       this.tryLogin(user.email, user.password, successCallback, failCallback);
+    } else if (failCallback) {
+      failCallback();
     }
   }
 }

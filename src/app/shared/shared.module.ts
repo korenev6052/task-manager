@@ -43,7 +43,8 @@ import { SelectInputComponent } from './components/select-input/select-input.com
     MatButtonModule,
     MatSnackBarModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
+    MatInputModule
   ]
 })
 export class SharedModule { }
