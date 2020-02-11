@@ -35,11 +35,11 @@
       "id": 1
     },
     {
-      "title": "Задача 3",
-      "managerId": 1,
-      "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae, fugiat. Saepe numquam laboriosam laudantium veniam tempora doloremque assumenda. Distinctio odit quasi quibusdam dolorum quam quas architecto eius, quia fugit dicta? Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae iusto mollitia laborum voluptates facilis ab facere, odit itaque quidem tempore laudantium neque, ea sunt iure. Inventore optio hic ex velit.",
-      "priority": "Высокий",
-      "status": "Выполнена",
+      "title": "Задача 42",
+      "managerId": 2,
+      "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+      "priority": "Средний",
+      "status": "Проверена",
       "id": 3
     },
     {
@@ -51,12 +51,36 @@
       "id": 5
     },
     {
-      "title": "Задача 13",
-      "managerId": 3,
+      "title": "Задача 45",
+      "managerId": 2,
       "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae, fugiat. Saepe numquam laboriosam laudantium veniam tempora doloremque assumenda. Distinctio odit quasi quibusdam dolorum quam quas architecto eius, quia fugit dicta? Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae iusto mollitia laborum voluptates facilis ab facere, odit itaque quidem tempore laudantium neque, ea sunt iure. Inventore optio hic ex velit.",
-      "priority": "Высокий",
+      "priority": "Низкий",
       "status": "Запланирована",
       "id": 7
+    },
+    {
+      "title": "Задача 30",
+      "managerId": 4,
+      "description": "Quae iusto mollitia laborum voluptates facilis ab facere, odit itaque quidem tempore laudantium neque",
+      "priority": "Высокий",
+      "status": "Неактивная",
+      "id": 8
+    },
+    {
+      "title": "Задача 100",
+      "managerId": 4,
+      "description": "Lorem ipsum",
+      "priority": "Низкий",
+      "status": "Неактивная",
+      "id": 9
+    },
+    {
+      "title": "Задача 101",
+      "managerId": 3,
+      "description": "",
+      "priority": "Средний",
+      "status": "Неактивная",
+      "id": 10
     }
   ]
 }

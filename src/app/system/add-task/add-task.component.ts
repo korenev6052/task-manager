@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 import { SingleFormComponent } from 'src/app/shared/components/single-form/single-form.component';
 import { TasksService } from '../shared/services/tasks.service';
@@ -18,7 +19,8 @@ export class AddTaskComponent extends SingleFormComponent implements OnInit {
     formBuilder: FormBuilder,
     snackBar: MatSnackBar,
     private tasksService: TasksService,
-    private managersService: ManagersService
+    private managersService: ManagersService,
+    private router: Router
   ) {
     super(formBuilder, snackBar);
   }
@@ -54,14 +56,14 @@ export class AddTaskComponent extends SingleFormComponent implements OnInit {
   }
 
   onSubmit() {
-    const { title, managerId, description, priority, status } = this.form.value;
-    this.makeRequest = this.tasksService.addTask({
-      title,
-      managerId: +managerId,
-      description,
-      priority,
-      status
-    });
+    const task = this.form.value;
+    task.managerId = +task.managerId;
+    this.makeRequest = this.tasksService.addTask(task);
     this.formSubmit();
+  }
+
+  onSubmitSuccess() {
+    this.showMessage('Задача добавлена');
+    this.router.navigate(['/system', 'task-list']);
   }
 }

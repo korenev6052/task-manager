@@ -73,8 +73,7 @@ export class RegistrationComponent extends SingleFormComponent implements OnInit
   }
 
   onSubmitSuccess(users: User[]) {
-    this.successMessage = 'Теперь вы можете войти';
-    this.snackBar.open(this.successMessage, 'Закрыть', { duration: 3000, verticalPosition: 'bottom' });
+    this.showMessage('Теперь вы можете войти');
     this.router.navigate(['/login']);
   }
 }

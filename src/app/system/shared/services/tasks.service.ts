@@ -25,7 +25,7 @@ export class TasksService {
     return this.http.put<Task>(`${environment.JSONServer}/tasks/${task.id}`, task);
   }
 
-  deleteTask(task: Task) {
-    return this.http.delete(`${environment.JSONServer}/tasks/${task.id}`);
+  deleteTask(task: Task): Observable<any> {
+    return this.http.delete<any>(`${environment.JSONServer}/tasks/${task.id}`);
   }
 }

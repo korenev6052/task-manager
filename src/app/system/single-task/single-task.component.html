@@ -11,7 +11,7 @@
     <span>Статус: {{ task.status }}</span>
     <span>Приоритет: {{ task.priority }}</span>
     <span>Исполнитель: {{ manager }}</span>
-    <span class="data__description">{{ task.description }}</span>
+    <span class="data__description">{{ task.description || 'Описание отсутствует' }}</span>
   </div>
   <mat-action-row>
     <button mat-button color="primary" (click)="edit()">Редактировать</button>

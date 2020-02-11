@@ -1,1 +1,21 @@
-<p>edit-task works!</p>
+<div class="edit-task">
+  <h1>Редактировать задачу</h1>
+  <div *ngIf="!loaded">Пожалуйста, подождите...</div>
+  <form *ngIf="loaded" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <app-text-input [form]="form" name="title" label="Название" [errors]="formErrors['title']">
+    </app-text-input>
+    <app-select-input [form]="form" name="managerId" label="Исполнитель" [errors]="formErrors['managerId']"
+      [opts]="managersOpts" [optsValues]="managersOptsValues">
+    </app-select-input>
+    <app-text-input [form]="form" name="description" label="Описание" textarea="true">
+    </app-text-input>
+    <app-select-input [form]="form" name="priority" label="Приоритет" [errors]="formErrors['priority']"
+      [opts]="prioritiesOpts">
+    </app-select-input>
+    <app-select-input [form]="form" name="status" label="Статус" [errors]="formErrors['status']" [opts]="statusesOpts">
+    </app-select-input>
+    <button type="submit" mat-raised-button color="primary" class="edit-task__button" [disabled]="sending">
+      Сохранить изменения
+    </button>
+  </form>
+</div>
