@@ -44,10 +44,9 @@ export class AddTaskComponent extends SingleFormComponent implements OnInit {
 
     if (!this.admin) {
       this.statusesOVDisabled = [
-        this.statuses.inactive,
         this.statuses.verified,
         this.statuses.closed
-      ]
+      ];
     }
 
     this.initForm({
@@ -74,6 +73,9 @@ export class AddTaskComponent extends SingleFormComponent implements OnInit {
 
   onSubmit() {
     const task = this.form.value;
+
+    if (!task.priority) task.priority = this.priorities.average;
+
     task.managerId = +task.managerId;
     this.makeRequest = this.tasksService.addTask(task);
     this.formSubmit();

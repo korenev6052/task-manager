@@ -13,7 +13,7 @@ export class TasksSearchPipe implements PipeTransform {
     if (tasks.length === 0 || !key || !value) {
       return tasks;
     }
-    console.log(key, value);
+
     if (key === 'managerId') {
       return tasks.filter((task) => {
         const fullName = this.managersService.getFullNameById(task.managerId);

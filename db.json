@@ -1,109 +1,40 @@
 {
   "users": [
     {
-      "fullName": "Коренев Александр",
-      "email": "ak@mail.ru",
-      "password": "qqqqwwww",
+      "fullName": "Александр",
+      "email": "a@mail.ru",
+      "password": "12345678",
+      "admin": true,
       "id": 1
     },
     {
-      "fullName": "Петров Александр",
-      "email": "ap@mail.ru",
-      "password": "qqqqwwww",
+      "fullName": "Денис",
+      "email": "d@mail.ru",
+      "password": "12345678",
+      "admin": false,
       "id": 2
     },
     {
-      "fullName": "Денисов Петр",
-      "email": "pd@mail.ru",
-      "password": "qqqqwwww",
+      "fullName": "Максим",
+      "email": "m@mail.ru",
+      "password": "12345678",
+      "admin": false,
       "id": 3
     },
     {
-      "fullName": "Леонов Виталий",
-      "email": "vl@mail.ru",
-      "password": "qqqqwwww",
+      "fullName": "Кирилл",
+      "email": "k@mail.ru",
+      "password": "12345678",
+      "admin": false,
       "id": 4
     },
     {
-      "fullName": "Санек",
-      "email": "qq@mail.ru",
+      "fullName": "Валентин",
+      "email": "v@mail.ru",
       "password": "12345678",
       "admin": false,
       "id": 5
     }
   ],
-  "tasks": [
-    {
-      "title": "Задача 1",
-      "managerId": 0,
-      "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae, fugiat. Saepe numquam laboriosam laudantium veniam tempora doloremque assumenda. Distinctio odit quasi quibusdam dolorum quam quas architecto eius, quia fugit dicta? Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae iusto mollitia laborum voluptates facilis ab facere, odit itaque quidem tempore laudantium neque, ea sunt iure. Inventore optio hic ex velit.",
-      "priority": "Средний",
-      "status": "Проверена",
-      "id": 1
-    },
-    {
-      "title": "Задача 42",
-      "managerId": 3,
-      "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
-      "priority": "Средний",
-      "status": "Проверена",
-      "id": 3
-    },
-    {
-      "title": "Задача 5",
-      "managerId": 2,
-      "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae, fugiat. Saepe numquam laboriosam laudantium veniam tempora doloremque assumenda. Distinctio odit quasi quibusdam dolorum quam quas architecto eius, quia fugit dicta? Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae iusto mollitia laborum voluptates facilis ab facere, odit itaque quidem tempore laudantium neque, ea sunt iure. Inventore optio hic ex velit.",
-      "priority": "Средний",
-      "status": "Закрыта",
-      "id": 5
-    },
-    {
-      "title": "Задача 45",
-      "managerId": 2,
-      "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae, fugiat. Saepe numquam laboriosam laudantium veniam tempora doloremque assumenda. Distinctio odit quasi quibusdam dolorum quam quas architecto eius, quia fugit dicta? Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae iusto mollitia laborum voluptates facilis ab facere, odit itaque quidem tempore laudantium neque, ea sunt iure. Inventore optio hic ex velit. Search test",
-      "priority": "Низкий",
-      "status": "Запланирована",
-      "id": 7
-    },
-    {
-      "title": "Задача 100",
-      "managerId": 4,
-      "description": "Lorem ipsum",
-      "priority": "Низкий",
-      "status": "Неактивная",
-      "id": 9
-    },
-    {
-      "title": "Задача 150",
-      "managerId": 4,
-      "description": "",
-      "priority": "Высокий",
-      "status": "Неактивная",
-      "id": 10
-    },
-    {
-      "title": "fds",
-      "managerId": 0,
-      "description": "",
-      "priority": "Средний",
-      "status": "Неактивная",
-      "id": 11
-    },
-    {
-      "title": "fsad",
-      "managerId": 0,
-      "description": "",
-      "priority": "Средний",
-      "status": "Неактивная",
-      "id": 12
-    },
-    {
-      "title": "gddsg",
-      "managerId": 3,
-      "description": "gddshffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
-      "priority": "Средний",
-      "status": "Неактивная",
-      "id": 13
-    }
-  ]
+  "tasks": []
 }

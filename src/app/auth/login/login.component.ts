@@ -12,7 +12,11 @@ import { FormErrors } from 'src/app/shared/interfaces/form-errors.interface';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  constructor(private authService: AuthService, private router: Router, private snackBar: MatSnackBar) { }
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private snackBar: MatSnackBar
+  ) { }
 
   loaded: boolean = false;
   form: FormGroup;
@@ -49,6 +53,6 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['/system']);
     }, () => {
       this.snackBar.open('Неверный емейл или пароль', 'Закрыть', { duration: 3000, verticalPosition: 'bottom' });
-    })
+    });
   }
 }

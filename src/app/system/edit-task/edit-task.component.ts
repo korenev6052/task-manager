@@ -31,8 +31,10 @@ export class EditTaskComponent extends SingleFormComponent implements OnInit, On
   }
 
   loaded: boolean = false;
-  editTaskId: number = null;
   admin: boolean = false;
+
+  editTaskId: number = null;
+  editTaskPriority: string = '';
 
   priorities = TaskPriorities;
   prioritiesOpts = Object.values(this.priorities);
@@ -54,7 +56,7 @@ export class EditTaskComponent extends SingleFormComponent implements OnInit, On
         this.statuses.inactive,
         this.statuses.verified,
         this.statuses.closed
-      ]
+      ];
     }
 
     const urlArr = this.router.url.split('/');
@@ -85,12 +87,18 @@ export class EditTaskComponent extends SingleFormComponent implements OnInit, On
         });
 
         this.editTaskId = task.id;
+        this.editTaskPriority = task.priority;
         this.loaded = true;
+      }, (error) => {
+        this.showMessage('Произошла ошибка');
       });
   }
 
   onSubmit() {
     const task = this.form.value;
+
+    if (!task.priority) task.priority = this.editTaskPriority;
+
     task.managerId = +task.managerId;
     task.id = this.editTaskId;
     this.makeRequest = this.tasksService.updateTask(task);

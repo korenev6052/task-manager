@@ -10,7 +10,7 @@
     <app-text-input [form]="form" name="description" label="Описание" textarea="true">
     </app-text-input>
     <app-select-input [form]="form" name="priority" label="Приоритет" [errors]="formErrors['priority']"
-      [opts]="prioritiesOpts" [disable]="!isAdmin">
+      [opts]="prioritiesOpts" [disable]="!admin">
     </app-select-input>
     <app-select-input [form]="form" name="status" label="Статус" [errors]="formErrors['status']" [opts]="statusesOpts"
       [optsValuesDisabled]="statusesOVDisabled" (onValueChange)="statusChange($event)">

@@ -34,6 +34,9 @@
       </div>
     </div>
   </div>
+  <div *ngIf="!tasks.length">
+    В списке нет задач. Хотите <a routerLink="/system/add-task">создать новую задачу</a> прямо сейчас?
+  </div>
   <div class="tasks">
     <mat-accordion>
       <app-single-task

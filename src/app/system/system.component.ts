@@ -5,9 +5,9 @@ import { Subject } from 'rxjs';
 
 import { NavbarItem } from '../shared/models/navbar-item.model';
 import { UsersService } from '../shared/services/users.service';
-import { Manager } from './shared/models/manager.model';
 import { User } from '../shared/models/user.model';
 import { ManagersService } from './shared/services/managers.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-system',
@@ -18,7 +18,8 @@ export class SystemComponent implements OnInit, OnDestroy {
   constructor(
     private router: Router,
     private usersService: UsersService,
-    private managersService: ManagersService
+    private managersService: ManagersService,
+    private snackBar: MatSnackBar
   ) { }
 
   items: NavbarItem[] = [{
@@ -40,10 +41,13 @@ export class SystemComponent implements OnInit, OnDestroy {
     this.usersService.getUsers()
       .pipe(takeUntil(this.destroy))
       .subscribe((users: User[]) => {
-        users.forEach((user) => {
+        const managers = users.map((user) => {
           const { fullName, id } = user;
-          this.managersService.addManager({ fullName, id });
+          return { fullName, id };
         });
+        this.managersService.managers = managers;
+      }, (error) => {
+        this.snackBar.open('Произошла ошибка', 'Закрыть', { duration: 3000, verticalPosition: 'bottom' });
       });
   }
 

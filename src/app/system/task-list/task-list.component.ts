@@ -30,6 +30,7 @@ export class TaskListComponent implements OnInit, OnDestroy {
 
   sortType = SortType;
   sortTypeIcon = SortTypeIcon;
+
   keySortType = {
     title: this.sortType.default,
     managerId: this.sortType.default,
@@ -49,6 +50,8 @@ export class TaskListComponent implements OnInit, OnDestroy {
         this.originTasks = tasks;
         this.tasks = this.originTasks;
         this.loaded = true;
+      }, (error) => {
+        this.showMessage('Произошла ошибка');
       });
   }
 
@@ -70,6 +73,7 @@ export class TaskListComponent implements OnInit, OnDestroy {
 
   makeSort(event) {
     const key = event.target.dataset.key;
+    this.sortingSet = true;
 
     if (this.keySortType[key] === this.sortType.ascending) {
       this.keySortType[key] = this.sortType.descending;
@@ -78,8 +82,6 @@ export class TaskListComponent implements OnInit, OnDestroy {
     }
 
     this.tasks = this.tasks.sort((taskA, taskB) => {
-      this.sortingSet = true;
-
       let a = taskA[key];
       let b = taskB[key];
 

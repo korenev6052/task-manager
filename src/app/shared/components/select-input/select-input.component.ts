@@ -36,6 +36,7 @@ export class SelectInputComponent implements OnInit {
 
   isControlHasError(): boolean {
     const control = this.form.get(this.name);
+
     if (control && control.enabled && !control.valid) {
       this.setErrorMessage(control);
       return true;
