@@ -14,6 +14,7 @@ export class TextInputComponent {
   @Input() label: string;
   @Input() errors: object;
   @Input() textarea: boolean;
+  @Input() readonly: boolean;
 
   errorMessage: string;
 

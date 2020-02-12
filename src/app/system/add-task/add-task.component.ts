@@ -8,6 +8,7 @@ import { TasksService } from '../shared/services/tasks.service';
 import { TaskPriorities } from '../shared/consts/task-priorities.const';
 import { TaskStatuses } from '../shared/consts/task-statuses.const';
 import { ManagersService } from '../shared/services/managers.service';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
   selector: 'app-add-task',
@@ -20,19 +21,35 @@ export class AddTaskComponent extends SingleFormComponent implements OnInit {
     snackBar: MatSnackBar,
     private tasksService: TasksService,
     private managersService: ManagersService,
-    private router: Router
+    private router: Router,
+    private authService: AuthService
   ) {
     super(formBuilder, snackBar);
   }
 
+  admin: boolean = false;
+
   priorities = TaskPriorities;
   prioritiesOpts = Object.values(this.priorities);
+
   statuses = TaskStatuses;
   statusesOpts = Object.values(this.statuses);
+  statusesOVDisabled: string[] = [];
+
   managersOpts = this.managersService.fullNameValues;
   managersOptsValues = this.managersService.idValues;
 
   ngOnInit() {
+    this.admin = this.authService.isAdmin();
+
+    if (!this.admin) {
+      this.statusesOVDisabled = [
+        this.statuses.inactive,
+        this.statuses.verified,
+        this.statuses.closed
+      ]
+    }
+
     this.initForm({
       title: ['', Validators.required],
       managerId: [''],

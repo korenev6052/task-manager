@@ -15,6 +15,7 @@
   </div>
   <mat-action-row>
     <button mat-button color="primary" (click)="edit()">Редактировать</button>
-    <button mat-button color="warn" (click)="delete()">Удалить</button>
+    <button mat-button color="warn" [disabled]="!admin && task.status !== statuses.inactive"
+      (click)="delete()">Удалить</button>
   </mat-action-row>
 </mat-expansion-panel>

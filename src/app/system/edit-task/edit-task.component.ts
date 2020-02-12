@@ -11,6 +11,7 @@ import { SingleFormComponent } from 'src/app/shared/components/single-form/singl
 import { TaskPriorities } from '../shared/consts/task-priorities.const';
 import { TaskStatuses } from '../shared/consts/task-statuses.const';
 import { ManagersService } from '../shared/services/managers.service';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
   selector: 'app-edit-task',
@@ -23,26 +24,42 @@ export class EditTaskComponent extends SingleFormComponent implements OnInit, On
     snackBar: MatSnackBar,
     private router: Router,
     private tasksService: TasksService,
-    private managersService: ManagersService
+    private managersService: ManagersService,
+    private authService: AuthService
   ) {
     super(formBuilder, snackBar);
   }
 
   loaded: boolean = false;
-  editTaskId: number;
+  editTaskId: number = null;
+  admin: boolean = false;
 
   priorities = TaskPriorities;
   prioritiesOpts = Object.values(this.priorities);
+
   statuses = TaskStatuses;
   statusesOpts = Object.values(this.statuses);
+  statusesOVDisabled: string[] = [];
+
   managersOpts = this.managersService.fullNameValues;
   managersOptsValues = this.managersService.idValues;
 
   destroy: Subject<any> = new Subject<any>();
 
   ngOnInit() {
+    this.admin = this.authService.isAdmin();
+
+    if (!this.admin) {
+      this.statusesOVDisabled = [
+        this.statuses.inactive,
+        this.statuses.verified,
+        this.statuses.closed
+      ]
+    }
+
     const urlArr = this.router.url.split('/');
     const taskId = +urlArr[urlArr.length - 1];
+
     this.tasksService.getTaskById(taskId)
       .pipe(takeUntil(this.destroy))
       .subscribe((task: Task) => {
@@ -66,6 +83,7 @@ export class EditTaskComponent extends SingleFormComponent implements OnInit, On
             required: 'Статуc не может быть пустым'
           }
         });
+
         this.editTaskId = task.id;
         this.loaded = true;
       });

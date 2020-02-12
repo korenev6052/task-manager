@@ -14,13 +14,15 @@ import { SingleFormComponent } from './components/single-form/single-form.compon
 import { TextInputComponent } from './components/text-input/text-input.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SelectInputComponent } from './components/select-input/select-input.component';
+import { DisableControlDirective } from './directives/disable-control.directive';
 
 @NgModule({
   declarations: [
     SingleFormComponent,
     TextInputComponent,
     NavbarComponent,
-    SelectInputComponent
+    SelectInputComponent,
+    DisableControlDirective
   ],
   imports: [
     CommonModule,

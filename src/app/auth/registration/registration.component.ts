@@ -72,7 +72,7 @@ export class RegistrationComponent extends SingleFormComponent implements OnInit
 
   onSubmit() {
     const { fullName, email, password } = this.form.value;
-    this.makeRequest = this.usersService.createUser({ fullName, email, password });
+    this.makeRequest = this.usersService.createUser({ fullName, email, password, admin: false });
     this.formSubmit();
   }
 

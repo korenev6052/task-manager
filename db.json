@@ -23,6 +23,13 @@
       "email": "vl@mail.ru",
       "password": "qqqqwwww",
       "id": 4
+    },
+    {
+      "fullName": "Санек",
+      "email": "qq@mail.ru",
+      "password": "12345678",
+      "admin": false,
+      "id": 5
     }
   ],
   "tasks": [
@@ -59,14 +66,6 @@
       "id": 7
     },
     {
-      "title": "Задача 30",
-      "managerId": 4,
-      "description": "Quae iusto mollitia laborum voluptates facilis ab facere, odit itaque quidem tempore laudantium neque",
-      "priority": "Высокий",
-      "status": "Неактивная",
-      "id": 8
-    },
-    {
       "title": "Задача 100",
       "managerId": 4,
       "description": "Lorem ipsum",
@@ -97,6 +96,14 @@
       "priority": "Средний",
       "status": "Неактивная",
       "id": 12
+    },
+    {
+      "title": "gddsg",
+      "managerId": 3,
+      "description": "gddshffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+      "priority": "Средний",
+      "status": "Неактивная",
+      "id": 13
     }
   ]
 }
