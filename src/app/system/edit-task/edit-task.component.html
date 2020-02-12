@@ -1,0 +1,22 @@
+<div *ngIf="!loaded">Пожалуйста, подождите...</div>
+<div *ngIf="loaded" class="edit-task">
+  <h1>Редактировать задачу</h1>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <app-text-input [form]="form" name="title" label="Название" [errors]="formErrors['title']">
+    </app-text-input>
+    <app-select-input [form]="form" name="managerId" label="Исполнитель" [errors]="formErrors['managerId']"
+      [opts]="managersOpts" [optsValues]="managersOptsValues">
+    </app-select-input>
+    <app-text-input [form]="form" name="description" label="Описание" textarea="true">
+    </app-text-input>
+    <app-select-input [form]="form" name="priority" label="Приоритет" [errors]="formErrors['priority']"
+      [opts]="prioritiesOpts" [disable]="!admin">
+    </app-select-input>
+    <app-select-input [form]="form" name="status" label="Статус" [errors]="formErrors['status']" [opts]="statusesOpts"
+      [optsValuesDisabled]="statusesOVDisabled" (onValueChange)="statusChange($event)">
+    </app-select-input>
+    <button type="submit" mat-raised-button color="primary" class="edit-task__button" [disabled]="sending">
+      Сохранить изменения
+    </button>
+  </form>
+</div>

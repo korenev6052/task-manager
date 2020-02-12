@@ -1,0 +1,40 @@
+{
+  "users": [
+    {
+      "fullName": "Александр",
+      "email": "a@mail.ru",
+      "password": "12345678",
+      "admin": true,
+      "id": 1
+    },
+    {
+      "fullName": "Денис",
+      "email": "d@mail.ru",
+      "password": "12345678",
+      "admin": false,
+      "id": 2
+    },
+    {
+      "fullName": "Максим",
+      "email": "m@mail.ru",
+      "password": "12345678",
+      "admin": false,
+      "id": 3
+    },
+    {
+      "fullName": "Кирилл",
+      "email": "k@mail.ru",
+      "password": "12345678",
+      "admin": false,
+      "id": 4
+    },
+    {
+      "fullName": "Валентин",
+      "email": "v@mail.ru",
+      "password": "12345678",
+      "admin": false,
+      "id": 5
+    }
+  ],
+  "tasks": []
+}

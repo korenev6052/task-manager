@@ -1,0 +1,14 @@
+<mat-toolbar color="primary" class="navbar">
+  <span class="navbar__item">
+    <a class="navbar__link" routerLink="/">Task Manager</a>
+  </span>
+  <span class="navbar__spacer"></span>
+  <ul *ngIf="items" class="navbar__items">
+    <li *ngFor="let item of items" class="navbar__item">
+      <a class="navbar__link" routerLink="{{ item.link }}">{{ item.title }}</a>
+    </li>
+  </ul>
+  <span *ngIf="loggedIn" class="navbar__item">
+    <a class="navbar__link" (click)="logout()">Выйти</a>
+  </span>
+</mat-toolbar>

@@ -1,0 +1,9 @@
+.text-input {
+  margin-bottom: 10px;
+}
+.text-input__field {
+  width: 100%;
+}
+.text-input__field textarea {
+  min-height: 100px;
+}
