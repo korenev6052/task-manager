@@ -7,6 +7,8 @@ import { TasksService } from '../shared/services/tasks.service';
 import { Task } from '../shared/models/task.model';
 import { SortType, SortTypeIcon } from '../shared/consts/sort-type.const'
 import { ManagersService } from '../shared/services/managers.service';
+import { TaskPrioritiesSort } from '../shared/consts/task-priorities.const';
+import { TaskStatusesSort } from '../shared/consts/task-statuses.const';
 
 @Component({
   selector: 'app-task-list',
@@ -21,6 +23,8 @@ export class TaskListComponent implements OnInit, OnDestroy {
   ) { }
 
   loaded: boolean = false;
+  sortingSet: boolean = false;
+
   originTasks: Task[] = [];
   tasks: Task[] = [];
 
@@ -33,6 +37,9 @@ export class TaskListComponent implements OnInit, OnDestroy {
     status: this.sortType.default
   }
 
+  statusesSort = TaskStatusesSort;
+  prioritiesSort = TaskPrioritiesSort;
+
   destroy: Subject<any> = new Subject<any>();
 
   ngOnInit() {
@@ -40,7 +47,7 @@ export class TaskListComponent implements OnInit, OnDestroy {
       .pipe(takeUntil(this.destroy))
       .subscribe((tasks: Task[]) => {
         this.originTasks = tasks;
-        this.tasks = tasks;
+        this.tasks = this.originTasks;
         this.loaded = true;
       });
   }
@@ -71,6 +78,8 @@ export class TaskListComponent implements OnInit, OnDestroy {
     }
 
     this.tasks = this.tasks.sort((taskA, taskB) => {
+      this.sortingSet = true;
+
       let a = taskA[key];
       let b = taskB[key];
 
@@ -84,10 +93,37 @@ export class TaskListComponent implements OnInit, OnDestroy {
         b = this.managersService.getFullNameById(b).toLowerCase();
       }
 
-      if (a < b) return -1;
-      if (a > b) return 1;
+      if (key === 'status') {
+        a = this.statusesSort[taskA[key]];
+        b = this.statusesSort[taskB[key]];
+      }
+
+      if (key === 'priority') {
+        a = this.prioritiesSort[taskA[key]];
+        b = this.prioritiesSort[taskB[key]];
+      }
+
+      if (this.keySortType[key] === this.sortType.ascending) {
+        if (a < b) return -1;
+        if (a > b) return 1;
+      } else {
+        if (a < b) return 1;
+        if (a > b) return -1;
+      }
+
       return 0;
     });
+  }
+
+  resetSort() {
+    this.sortingSet = false;
+    this.tasks = this.originTasks;
+    this.keySortType = {
+      title: this.sortType.default,
+      managerId: this.sortType.default,
+      priority: this.sortType.default,
+      status: this.sortType.default
+    }
   }
 
   trackByFn(index, item) {

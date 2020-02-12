@@ -16,6 +16,9 @@
 .sort__item:hover {
   color: #3F51B5;
 }
+.sort__item_reset {
+  color: #F44336;
+}
 .search {
   flex-grow: 1;
   display: flex;

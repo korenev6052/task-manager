@@ -83,6 +83,10 @@ export class EditTaskComponent extends SingleFormComponent implements OnInit, On
     this.router.navigate(['/system', 'task-list']);
   }
 
+  statusChange(event: string) {
+    console.log(event);
+  }
+
   ngOnDestroy() {
     this.destroy.next(true);
     this.destroy.unsubscribe();

@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, AbstractControl } from '@angular/forms';
+import { MatSelectChange } from '@angular/material/select';
 
 @Component({
   selector: 'app-select-input',
@@ -13,6 +14,8 @@ export class SelectInputComponent implements OnInit {
   @Input() opts: string[] | number[];
   @Input() optsValues: string[] | number[];
   @Input() errors: object;
+
+  @Output() onValueChange: EventEmitter<string | number> = new EventEmitter<string | number>();
 
   errorMessage: string;
 
@@ -36,5 +39,9 @@ export class SelectInputComponent implements OnInit {
     for (const key in control.errors) {
       this.errorMessage = this.errors[key];
     }
+  }
+
+  valueChange(event: MatSelectChange) {
+    this.onValueChange.emit(event.value);
   }
 }

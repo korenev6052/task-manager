@@ -15,6 +15,9 @@
       <div class="sort__item" data-key="status" (click)="makeSort($event)">
         Статус<mat-icon>{{ sortTypeIcon[keySortType.status] }}</mat-icon>
       </div>
+      <div [hidden]="!sortingSet" class="sort__item sort__item_reset" (click)="resetSort()">
+        Сбросить<mat-icon>delete_sweep</mat-icon>
+      </div>
     </div>
     <div class="search">
       <div class="search__item">

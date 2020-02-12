@@ -15,9 +15,9 @@ export const TaskStatuses = {
 }
 
 export const TaskStatusesSort = {
-  [Statuses.inactive]: 'Неактивная',
-  [Statuses.scheduled]: 'Запланирована',
-  [Statuses.done]: 'Выполнена',
-  [Statuses.verified]: 'Проверена',
-  [Statuses.closed]: 'Закрыта'
+  [TaskStatuses.inactive]: Statuses.inactive,
+  [TaskStatuses.scheduled]: Statuses.scheduled,
+  [TaskStatuses.done]: Statuses.done,
+  [TaskStatuses.verified]: Statuses.verified,
+  [TaskStatuses.closed]: Statuses.closed
 }

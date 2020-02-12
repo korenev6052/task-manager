@@ -12,7 +12,8 @@
     <app-select-input [form]="form" name="priority" label="Приоритет" [errors]="formErrors['priority']"
       [opts]="prioritiesOpts">
     </app-select-input>
-    <app-select-input [form]="form" name="status" label="Статус" [errors]="formErrors['status']" [opts]="statusesOpts">
+    <app-select-input [form]="form" name="status" label="Статус" [errors]="formErrors['status']" [opts]="statusesOpts"
+      (onValueChange)="statusChange($event)">
     </app-select-input>
     <button type="submit" mat-raised-button color="primary" class="edit-task__button" [disabled]="sending">
       Сохранить изменения

@@ -1,7 +1,7 @@
 <div class="select-input" [formGroup]="form">
   <mat-form-field class="select-input__field" appearance="fill">
     <mat-label *ngIf="label">{{ label }}</mat-label>
-    <mat-select [formControlName]="name">
+    <mat-select [formControlName]="name" (selectionChange)="valueChange($event)">
       <mat-option *ngFor="let opt of opts; index as i" value="{{ optsValues[i] }}">{{ opt }}</mat-option>
     </mat-select>
     <mat-error *ngIf="errors">

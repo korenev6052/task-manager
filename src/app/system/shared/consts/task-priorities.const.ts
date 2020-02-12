@@ -11,7 +11,7 @@ export const TaskPriorities = {
 }
 
 export const TaskPrioritiesSort = {
-  [Priorities.low]: 'Низкий',
-  [Priorities.average]: 'Средний',
-  [Priorities.high]: 'Высокий'
+  [TaskPriorities.low]: Priorities.low,
+  [TaskPriorities.average]: Priorities.average,
+  [TaskPriorities.high]: Priorities.high
 }
