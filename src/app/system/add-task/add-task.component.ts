@@ -35,7 +35,7 @@ export class AddTaskComponent extends SingleFormComponent implements OnInit {
   ngOnInit() {
     this.initForm({
       title: ['', Validators.required],
-      managerId: ['', Validators.required],
+      managerId: [''],
       description: [''],
       priority: [this.priorities.average, Validators.required],
       status: [this.statuses.inactive, Validators.required],
@@ -52,7 +52,7 @@ export class AddTaskComponent extends SingleFormComponent implements OnInit {
       status: {
         required: 'Статуc не может быть пустым'
       }
-    })
+    });
   }
 
   onSubmit() {
@@ -65,5 +65,18 @@ export class AddTaskComponent extends SingleFormComponent implements OnInit {
   onSubmitSuccess() {
     this.showMessage('Задача добавлена');
     this.router.navigate(['/system', 'task-list']);
+  }
+
+  statusChange(status: string) {
+    const managerIdCtrl = this.form.get('managerId');
+
+    if (status !== this.statuses.inactive) {
+      managerIdCtrl.setValidators(Validators.required);
+    } else {
+      managerIdCtrl.clearValidators();
+    }
+
+    managerIdCtrl.markAsTouched();
+    managerIdCtrl.updateValueAndValidity();
   }
 }

@@ -28,15 +28,15 @@
   "tasks": [
     {
       "title": "Задача 1",
-      "managerId": 2,
+      "managerId": 0,
       "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae, fugiat. Saepe numquam laboriosam laudantium veniam tempora doloremque assumenda. Distinctio odit quasi quibusdam dolorum quam quas architecto eius, quia fugit dicta? Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae iusto mollitia laborum voluptates facilis ab facere, odit itaque quidem tempore laudantium neque, ea sunt iure. Inventore optio hic ex velit.",
       "priority": "Средний",
-      "status": "Неактивная",
+      "status": "Проверена",
       "id": 1
     },
     {
       "title": "Задача 42",
-      "managerId": 1,
+      "managerId": 3,
       "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
       "priority": "Средний",
       "status": "Проверена",
@@ -81,6 +81,22 @@
       "priority": "Высокий",
       "status": "Неактивная",
       "id": 10
+    },
+    {
+      "title": "fds",
+      "managerId": 0,
+      "description": "",
+      "priority": "Средний",
+      "status": "Неактивная",
+      "id": 11
+    },
+    {
+      "title": "fsad",
+      "managerId": 0,
+      "description": "",
+      "priority": "Средний",
+      "status": "Неактивная",
+      "id": 12
     }
   ]
 }

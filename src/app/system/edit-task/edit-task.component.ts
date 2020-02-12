@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, Validators, FormControl } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { TasksService } from '../shared/services/tasks.service';
@@ -30,6 +30,7 @@ export class EditTaskComponent extends SingleFormComponent implements OnInit, On
 
   loaded: boolean = false;
   editTaskId: number;
+
   priorities = TaskPriorities;
   prioritiesOpts = Object.values(this.priorities);
   statuses = TaskStatuses;
@@ -47,7 +48,7 @@ export class EditTaskComponent extends SingleFormComponent implements OnInit, On
       .subscribe((task: Task) => {
         this.initForm({
           title: [task.title, Validators.required],
-          managerId: [String(task.managerId), Validators.required],
+          managerId: [String(task.managerId)],
           description: [task.description],
           priority: [task.priority, Validators.required],
           status: [task.status, Validators.required],
@@ -83,8 +84,22 @@ export class EditTaskComponent extends SingleFormComponent implements OnInit, On
     this.router.navigate(['/system', 'task-list']);
   }
 
-  statusChange(event: string) {
-    console.log(event);
+  statusChange(status: string) {
+    const managerIdCtrl = this.form.get('managerId');
+
+    if (status !== this.statuses.inactive) {
+      managerIdCtrl.setValidators(this.checkManagerId);
+    } else {
+      managerIdCtrl.clearValidators();
+    }
+
+    managerIdCtrl.markAsTouched();
+    managerIdCtrl.updateValueAndValidity();
+  }
+
+  checkManagerId(control: FormControl) {
+    const managerId = +control.value;
+    return (!managerId) ? { required: true } : null;
   }
 
   ngOnDestroy() {

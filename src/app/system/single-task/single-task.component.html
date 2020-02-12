@@ -2,7 +2,7 @@
   <mat-expansion-panel-header>
     <mat-panel-title>
       <div class="title">
-        <span>{{ task.title }} - {{ manager }} ({{ task.priority }} / {{ task.status }})</span>
+        <span>{{ task.title }} - {{ manager || 'Не задан' }} ({{ task.priority }} / {{ task.status }})</span>
       </div>
     </mat-panel-title>
   </mat-expansion-panel-header>
@@ -10,8 +10,8 @@
     <span>Название: {{ task.title }}</span>
     <span>Статус: {{ task.status }}</span>
     <span>Приоритет: {{ task.priority }}</span>
-    <span>Исполнитель: {{ manager }}</span>
-    <span class="data__description">{{ task.description || 'Описание отсутствует' }}</span>
+    <span>Исполнитель: {{ manager || 'Исполнитель не задан' }}</span>
+    <span class="data__description">{{ task.description || 'Описание не задано' }}</span>
   </div>
   <mat-action-row>
     <button mat-button color="primary" (click)="edit()">Редактировать</button>

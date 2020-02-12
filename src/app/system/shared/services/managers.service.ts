@@ -19,6 +19,8 @@ export class ManagersService {
   }
 
   getFullNameById(id: number): string {
+    if (!id) return '';
+
     const targetManager = this.managers.find((manager) => {
       return (manager.id === id);
     });
