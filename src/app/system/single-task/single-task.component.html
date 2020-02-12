@@ -1,15 +1,21 @@
-<mat-accordion>
-  <mat-expansion-panel>
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        Personal data
-      </mat-panel-title>
-      <mat-panel-description>
-        Type your name and age
-      </mat-panel-description>
-    </mat-expansion-panel-header>
-
-
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque nulla ratione iusto velit culpa quaerat? Porro
-    molestiae, repudiandae ullam odio rem accusantium voluptate minima nemo eligendi explicabo suscipit. Error, porro.
-  </mat-expansion-panel>
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      <div class="title">
+        <span>{{ task.title }} - {{ manager || 'Не задан' }} ({{ task.priority }} / {{ task.status }})</span>
+      </div>
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+  <div class="data">
+    <span>Название: {{ task.title }}</span>
+    <span>Статус: {{ task.status }}</span>
+    <span>Приоритет: {{ task.priority }}</span>
+    <span>Исполнитель: {{ manager || 'Исполнитель не задан' }}</span>
+    <span class="data__description">{{ task.description || 'Описание не задано' }}</span>
+  </div>
+  <mat-action-row>
+    <button mat-button color="primary" (click)="edit()">Редактировать</button>
+    <button mat-button color="warn" [disabled]="!admin && task.status !== statuses.inactive"
+      (click)="delete()">Удалить</button>
+  </mat-action-row>
+</mat-expansion-panel>

@@ -8,18 +8,21 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterModule } from '@angular/router';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
+import { MatIconModule } from '@angular/material/icon';
 
 import { SingleFormComponent } from './components/single-form/single-form.component';
 import { TextInputComponent } from './components/text-input/text-input.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SelectInputComponent } from './components/select-input/select-input.component';
+import { DisableControlDirective } from './directives/disable-control.directive';
 
 @NgModule({
   declarations: [
     SingleFormComponent,
     TextInputComponent,
     NavbarComponent,
-    SelectInputComponent
+    SelectInputComponent,
+    DisableControlDirective
   ],
   imports: [
     CommonModule,
@@ -30,7 +33,8 @@ import { SelectInputComponent } from './components/select-input/select-input.com
     MatSnackBarModule,
     MatToolbarModule,
     MatFormFieldModule,
-    MatSelectModule
+    MatSelectModule,
+    MatIconModule
   ],
   exports: [
     ReactiveFormsModule,
@@ -40,7 +44,9 @@ import { SelectInputComponent } from './components/select-input/select-input.com
     NavbarComponent,
     MatButtonModule,
     MatSnackBarModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatIconModule,
+    MatInputModule
   ]
 })
 export class SharedModule { }

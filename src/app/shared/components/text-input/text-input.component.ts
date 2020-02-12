@@ -14,11 +14,13 @@ export class TextInputComponent {
   @Input() label: string;
   @Input() errors: object;
   @Input() textarea: boolean;
+  @Input() readonly: boolean;
 
   errorMessage: string;
 
   isControlHasError(): boolean {
     const control = this.form.get(this.name);
+
     if (control && control.enabled && !control.valid) {
       this.setErrorMessage(control);
       return true;

@@ -8,20 +8,27 @@ import { User } from '../models/user.model';
 export class AuthService {
   constructor(private usersService: UsersService) { }
 
+  private user: User = null;
   private loggedIn = false;
 
   login(user: User) {
     window.localStorage.setItem('user', JSON.stringify(user));
+    this.user = user;
     this.loggedIn = true;
   }
 
   logout() {
     window.localStorage.clear();
+    this.user = null;
     this.loggedIn = false;
   }
 
   isLoggedIn(): boolean {
     return this.loggedIn;
+  }
+
+  isAdmin() {
+    return this.user.admin;
   }
 
   tryLogin(email: string, password: string, successCallback?: () => void, failCallback?: () => void) {
@@ -42,6 +49,8 @@ export class AuthService {
 
     if (user) {
       this.tryLogin(user.email, user.password, successCallback, failCallback);
+    } else if (failCallback) {
+      failCallback();
     }
   }
 }

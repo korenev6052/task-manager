@@ -19,8 +19,6 @@ export class SingleFormComponent {
   makeRequest: Observable<any> = of(null);
   sending: boolean = false;
   sent: boolean = false;
-  successMessage: string = 'Форма отправлена';
-  failMessage: string = 'Ошибка отправки формы';
   destroy: Subject<any> = new Subject<any>();
 
   protected initForm(formFields: FormFields, formErrors?: FormErrors) {
@@ -51,12 +49,16 @@ export class SingleFormComponent {
     }
   }
 
-  protected onSubmitSuccess(request) {
-    this.snackBar.open(this.successMessage, 'Закрыть', { duration: 3000, verticalPosition: 'bottom' });
+  protected onSubmitSuccess(request: any) {
+    this.showMessage('Форма отправлена');
   }
 
-  protected onSubmitFail(error) {
-    this.snackBar.open(this.failMessage, 'Закрыть', { duration: 3000, verticalPosition: 'bottom' });
+  protected onSubmitFail(error: any) {
+    this.showMessage('Произошла ошибка');
+  }
+
+  protected showMessage(message: string) {
+    this.snackBar.open(message, 'Закрыть', { duration: 3000, verticalPosition: 'bottom' });
   }
 
   ngOnDestroy() {

@@ -1,134 +1,40 @@
 {
   "users": [
     {
-      "fullName": "Александр Коренев",
-      "email": "admin@mail.ru",
-      "password": "qqqqwwww",
+      "fullName": "Александр",
+      "email": "a@mail.ru",
+      "password": "12345678",
+      "admin": true,
       "id": 1
     },
     {
-      "fullName": "Александр Петров",
-      "email": "admin2@mail.ru",
-      "password": "qqqqwwww",
+      "fullName": "Денис",
+      "email": "d@mail.ru",
+      "password": "12345678",
+      "admin": false,
       "id": 2
     },
     {
-      "fullName": "Петр Денисов",
-      "email": "admin3@mail.ru",
-      "password": "qqqqwwww",
+      "fullName": "Максим",
+      "email": "m@mail.ru",
+      "password": "12345678",
+      "admin": false,
       "id": 3
     },
     {
-      "fullName": "Виталий Леонов",
-      "email": "admin4@mail.ru",
-      "password": "qqqqwwww",
+      "fullName": "Кирилл",
+      "email": "k@mail.ru",
+      "password": "12345678",
+      "admin": false,
       "id": 4
+    },
+    {
+      "fullName": "Валентин",
+      "email": "v@mail.ru",
+      "password": "12345678",
+      "admin": false,
+      "id": 5
     }
   ],
-  "tasks": [
-    {
-      "title": "sadsg",
-      "manager": "Александр Петров",
-      "description": "fdfasgsdagd",
-      "priority": "Средний",
-      "status": "Неактивная",
-      "id": 1
-    },
-    {
-      "title": "sfaasfd",
-      "managerId": null,
-      "description": "fasdf",
-      "priority": "Средний",
-      "status": "Неактивная",
-      "id": 2
-    },
-    {
-      "title": "gsgsadgas",
-      "managerId": 0,
-      "description": "gsagasd",
-      "priority": "Средний",
-      "status": "Выполнена",
-      "id": 3
-    },
-    {
-      "title": "gsagsa",
-      "managerId": 0,
-      "description": "gsda",
-      "priority": "Средний",
-      "status": "Проверена",
-      "id": 4
-    },
-    {
-      "title": "fasdfdas",
-      "managerId": 0,
-      "description": "gsadgsad",
-      "priority": "Средний",
-      "status": "Неактивная",
-      "id": 5
-    },
-    {
-      "title": "fdsf",
-      "managerId": 0,
-      "description": "fsda",
-      "priority": "Средний",
-      "status": "Неактивная",
-      "id": 6
-    },
-    {
-      "title": "fasd",
-      "managerId": 2,
-      "description": "gas",
-      "priority": "Средний",
-      "status": "Неактивная",
-      "id": 7
-    },
-    {
-      "title": "fasd",
-      "managerId": 0,
-      "description": "fads",
-      "priority": "Средний",
-      "status": "Неактивная",
-      "id": 8
-    },
-    {
-      "title": "fdsafas",
-      "managerId": 3,
-      "description": "fsad",
-      "priority": "Средний",
-      "status": "Неактивная",
-      "id": 9
-    },
-    {
-      "title": "gas",
-      "managerId": 4645,
-      "description": "gas",
-      "priority": "Средний",
-      "status": "Неактивная",
-      "id": 10
-    },
-    {
-      "title": "Новый тест",
-      "managerId": "3",
-      "description": "Новый тест",
-      "priority": "average",
-      "status": "scheduled",
-      "id": 11
-    },
-    {
-      "title": "gsgsdg",
-      "managerId": "3",
-      "description": "gsdfgsd",
-      "priority": "Средний",
-      "status": "Неактивная",
-      "id": 12
-    },
-    {
-      "title": "111111111111",
-      "managerId": "2",
-      "description": "111",
-      "priority": "Высокий",
-      "status": "Выполнена",
-      "id": 13
-    }
-  ]
+  "tasks": []
 }

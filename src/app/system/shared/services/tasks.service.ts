@@ -17,7 +17,15 @@ export class TasksService {
     return this.http.get<Task[]>(`${environment.JSONServer}/tasks`);
   }
 
+  getTaskById(id: number): Observable<Task> {
+    return this.http.get<Task>(`${environment.JSONServer}/tasks/${id}`);
+  }
+
   updateTask(task: Task): Observable<Task> {
     return this.http.put<Task>(`${environment.JSONServer}/tasks/${task.id}`, task);
+  }
+
+  deleteTask(task: Task): Observable<any> {
+    return this.http.delete<any>(`${environment.JSONServer}/tasks/${task.id}`);
   }
 }

@@ -25,11 +25,15 @@ export class RegistrationComponent extends SingleFormComponent implements OnInit
     super(formBuilder, snackBar);
   }
 
+  loaded: boolean = false;
+
   ngOnInit() {
     this.authService.tryLocalStorageLogin(() => {
       if (this.authService.isLoggedIn) {
         this.router.navigate(['/system']);
       }
+    }, () => {
+      this.loaded = true;
     });
 
     this.initForm({
@@ -68,13 +72,12 @@ export class RegistrationComponent extends SingleFormComponent implements OnInit
 
   onSubmit() {
     const { fullName, email, password } = this.form.value;
-    this.makeRequest = this.usersService.createUser({ fullName, email, password });
+    this.makeRequest = this.usersService.createUser({ fullName, email, password, admin: false });
     this.formSubmit();
   }
 
   onSubmitSuccess(users: User[]) {
-    this.successMessage = 'Теперь вы можете войти';
-    this.snackBar.open(this.successMessage, 'Закрыть', { duration: 3000, verticalPosition: 'bottom' });
+    this.showMessage('Теперь вы можете войти');
     this.router.navigate(['/login']);
   }
 }

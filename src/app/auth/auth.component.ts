@@ -28,7 +28,7 @@ export class AuthComponent implements OnInit {
         this.navbarItems = [{
           title: 'Перейти в систему',
           link: '/system'
-        }]
+        }];
       }
     });
   }

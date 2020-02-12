@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, AbstractControl } from '@angular/forms';
+import { MatSelectChange } from '@angular/material/select';
 
 @Component({
   selector: 'app-select-input',
@@ -10,20 +11,32 @@ export class SelectInputComponent implements OnInit {
   @Input() form: FormGroup;
   @Input() name: string;
   @Input() label: string;
-  @Input() opts: string[] | number[];
-  @Input() optsValues: string[] | number[];
+  @Input() opts: string[];
+  @Input() optsValues: string[];
+  @Input() optsValuesDisabled: string[];
   @Input() errors: object;
+  @Input() disable: boolean;
 
-  errorMessage: string;
+  @Output() onValueChange: EventEmitter<string | number> = new EventEmitter<string | number>();
+
+  errorMessage: string = '';
+  optsDisabled: boolean[] = [];
 
   ngOnInit() {
-    if (!this.optsValues) {
+    if (!this.optsValues || !this.optsValues.length) {
       this.optsValues = this.opts;
+    }
+
+    if (this.optsValuesDisabled && this.optsValuesDisabled.length) {
+      this.optsDisabled = this.optsValues.map((value) => {
+        return this.optsValuesDisabled.indexOf(value) !== -1;
+      });
     }
   }
 
   isControlHasError(): boolean {
     const control = this.form.get(this.name);
+
     if (control && control.enabled && !control.valid) {
       this.setErrorMessage(control);
       return true;
@@ -36,5 +49,9 @@ export class SelectInputComponent implements OnInit {
     for (const key in control.errors) {
       this.errorMessage = this.errors[key];
     }
+  }
+
+  valueChange(event: MatSelectChange) {
+    this.onValueChange.emit(event.value);
   }
 }
