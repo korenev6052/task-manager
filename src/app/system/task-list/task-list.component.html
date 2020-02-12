@@ -3,17 +3,17 @@
   <h1>Список задач</h1>
   <div class="toolbar">
     <div class="sort">
-      <div class="sort__item">
-        Название<mat-icon>expand_less</mat-icon>
+      <div class="sort__item" data-key="title" (click)="makeSort($event)">
+        Название<mat-icon>{{ sortTypeIcon[keySortType.title] }}</mat-icon>
       </div>
-      <div class="sort__item">
-        Исполнитель<mat-icon>expand_more</mat-icon>
+      <div class="sort__item" data-key="managerId" (click)="makeSort($event)">
+        Исполнитель<mat-icon>{{ sortTypeIcon[keySortType.managerId] }}</mat-icon>
       </div>
-      <div class="sort__item">
-        Приоритет<mat-icon>unfold_more</mat-icon>
+      <div class="sort__item" data-key="priority" (click)="makeSort($event)">
+        Приоритет<mat-icon>{{ sortTypeIcon[keySortType.priority] }}</mat-icon>
       </div>
-      <div class="sort__item">
-        Статус<mat-icon>unfold_more</mat-icon>
+      <div class="sort__item" data-key="status" (click)="makeSort($event)">
+        Статус<mat-icon>{{ sortTypeIcon[keySortType.status] }}</mat-icon>
       </div>
     </div>
     <div class="search">

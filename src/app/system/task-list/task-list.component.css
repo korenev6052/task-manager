@@ -11,6 +11,7 @@
 .sort__item {
   margin-right: 10px;
   cursor: pointer;
+  user-select: none;
 }
 .sort__item:hover {
   color: #3F51B5;

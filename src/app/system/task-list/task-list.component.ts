@@ -5,6 +5,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { TasksService } from '../shared/services/tasks.service';
 import { Task } from '../shared/models/task.model';
+import { SortType, SortTypeIcon } from '../shared/consts/sort-type.const'
+import { ManagersService } from '../shared/services/managers.service';
 
 @Component({
   selector: 'app-task-list',
@@ -12,11 +14,25 @@ import { Task } from '../shared/models/task.model';
   styleUrls: ['./task-list.component.css']
 })
 export class TaskListComponent implements OnInit, OnDestroy {
-  constructor(private tasksService: TasksService, private snackBar: MatSnackBar) { }
+  constructor(
+    private tasksService: TasksService,
+    private snackBar: MatSnackBar,
+    private managersService: ManagersService
+  ) { }
 
   loaded: boolean = false;
   originTasks: Task[] = [];
   tasks: Task[] = [];
+
+  sortType = SortType;
+  sortTypeIcon = SortTypeIcon;
+  keySortType = {
+    title: this.sortType.default,
+    managerId: this.sortType.default,
+    priority: this.sortType.default,
+    status: this.sortType.default
+  }
+
   destroy: Subject<any> = new Subject<any>();
 
   ngOnInit() {
@@ -43,6 +59,35 @@ export class TaskListComponent implements OnInit, OnDestroy {
 
   showMessage(message: string) {
     this.snackBar.open(message, 'Закрыть', { duration: 3000, verticalPosition: 'bottom' });
+  }
+
+  makeSort(event) {
+    const key = event.target.dataset.key;
+
+    if (this.keySortType[key] === this.sortType.ascending) {
+      this.keySortType[key] = this.sortType.descending;
+    } else {
+      this.keySortType[key] = this.sortType.ascending;
+    }
+
+    this.tasks = this.tasks.sort((taskA, taskB) => {
+      let a = taskA[key];
+      let b = taskB[key];
+
+      if (key === 'title') {
+        a = a.toLowerCase();
+        b = b.toLowerCase();
+      }
+
+      if (key === 'managerId') {
+        a = this.managersService.getFullNameById(a).toLowerCase();
+        b = this.managersService.getFullNameById(b).toLowerCase();
+      }
+
+      if (a < b) return -1;
+      if (a > b) return 1;
+      return 0;
+    });
   }
 
   trackByFn(index, item) {
