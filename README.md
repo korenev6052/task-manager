@@ -1,27 +1,27 @@
-# TaskManager
+# Приложение: "Управление задачами"
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.8.
+- Angular 8.3.8
+- Запуск 'npm run dev' (приложение - http://localhost:4200/, JSON-сервер - http://localhost:3000/)
 
-## Development server
+## Спецификация
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+1. Требуется создать приложение на Angular без лишних стилей CSS, только описанный ниже функционал.
+2. Пользователь должен иметь возможность зарегистрироваться.
+3. Зарегистрированный пользователь может залогинется/разлогинется.
+4. Для упрощения моделирования сервера можно хранить данные в LocalStorage.
+5. Авторизованный пользователь может видеть список задач (пустой изначально).
+6. Пользователь может создать, просматривать, редактировать, удалять задачи.
+7. Задача содержит:
+7.1 Название (обязательно).
+7.2 Исполнителя (не обязательно, пока статус == Неактивна) .
+7.3 Описание (не обязательно).
+7.4 Приоритет: Низкий, Средний (по умолчанию), Высокий.
+7.5 Статус: Неактивна (по умолчанию), Запланирована, Выполнена, Проверена, Закрыта.
+8 Пользователь может выполнить поиск задач по имени Автора и Описанию (поиск по подстроке).
+9 Пользователь может выполнить сортировку задач по одному, двум, трём, либо всем четырём параметрам среди которых (Название, имя Исполнителя, Приоритет, Статус)
+10. Пользователи бывают 2х видов Обычный и Администратор
+11. Обычный пользователь не может:
+11.1 Менять приоритет задачи.
+11.2 Устанавливать статус задачи в Проверена, Закрыта, Неактивна.
+11.3 Удалять задачу если статус отличен от Неактивна.
+12 Администратор может всё.
